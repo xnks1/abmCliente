@@ -56,7 +56,6 @@ const Navigate = useNavigate();
                 <Dropdown.Item href="#/action-3">Rubro Articulo Manufacturado</Dropdown.Item>
                 <Dropdown.Item onClick={() => Navigate('/rubroArticuloInsumo')}>Rubro Articulo Insumo</Dropdown.Item>
                 <Dropdown.Item onClick={() => Navigate('/Factura')}>Factura</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Empleado</Dropdown.Item>
                 <Dropdown.Item onClick={() => Navigate('/Cliente')}>Clientes</Dropdown.Item>
                 <Dropdown.Item onClick={() => Navigate('/domicilios')}>Domicilio</Dropdown.Item>
               </Dropdown.Menu>
