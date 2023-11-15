@@ -3,10 +3,10 @@ import { Usuario } from "./Usuario";
 export type Cliente = {
 
     id?: number;
-    nombre:String;
-    apellido:String;
-    telefono:String;
-    email:String;
+    nombre:string;
+    apellido:string;
+    telefono:string;
+    email:string;
     usuario: Usuario;
     fechaAlta: Date;
     fechaBaja: Date | null;
