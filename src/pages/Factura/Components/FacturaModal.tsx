@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useFormik } from "formik";
 import { toast } from 'react-toastify';
@@ -6,7 +5,6 @@ import { toast } from 'react-toastify';
 import { FacturaService } from "../../../services/FacturaService";
 import { ModalType } from "../../../types/ModalType";
 import { Factura } from "../../../types/Factura";
-import { MPDatos } from "../../../types/MPDatos";
 import { FormaPago } from "../../../types/Formadepago";
 
 
@@ -29,21 +27,9 @@ const FacturaModal: React.FC<FacturaModalProps> = ({
 }) => {
 
 
- const [mpDatos, setmpDatos] = useState<MPDatos[]>([]);
   
   
-  useEffect(() => {
-    const fetchLists = async () => {
-      try {
-        const mpDatos = await FacturaService.getMPDatos();
-        setmpDatos(mpDatos);
-      } catch (error) {
-        console.error("Error fetching rubros and unidades de medida:", error);
-      }
-    };
-
-    fetchLists();
-  }, []);
+  
 
   const formik = useFormik({
     initialValues: factura,
@@ -221,7 +207,7 @@ const FacturaModal: React.FC<FacturaModalProps> = ({
       <Form.Control
         type="date"
         name="fechaFacturacion"
-        value={formik.values.fechaFacturacion || ''}
+        value={formik.values.fechaFacturacion?.toISOString()}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         isInvalid={Boolean(formik.errors.fechaFacturacion && formik.touched.fechaFacturacion)}
